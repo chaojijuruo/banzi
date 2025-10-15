@@ -1,1 +1,124 @@
-111
+%!TEX program = xelatex
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt, a4paper]{article} % A4纸张，小四号字
+
+%---------- 中文支持配置 ----------
+\usepackage{ctex} % 中文核心支持
+\usepackage{fontspec} % 字体管理
+\setmainfont{Times New Roman} % 英文主字体
+\setCJKmainfont{SimSun}[BoldFont=SimHei, ItalicFont=KaiTi] % 中文主字体（宋体/黑体/楷体）
+
+%---------- 页面布局 ----------
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry} % A4边距
+\usepackage{setspace} % 行距控制
+\renewcommand{\baselinestretch}{1.5} % 1.5倍行距
+\setlength{\parindent}{2em} % 首行缩进
+
+%---------- 算法伪代码环境 ----------
+\usepackage{amsmath}
+\usepackage[linesnumbered, ruled, vlined]{algorithm2e} % 带行号、顶部/底部横线
+\SetAlgoCaptionSeparator{：} % 中文化标题分隔符
+\SetKwInput{KwInput}{输入} % 设置输入说明
+\SetKwInput{KwOutput}{输出} % 设置输出说明
+\SetKw{Break}{break} % 重定义关键字
+\SetKwIF{If}{ElseIf}{Else}{如果}{则}{否则如果}{否则}{结束} % 中文化条件语句
+\SetKwFor{While}{当}{时}{结束} % 中文化循环语句
+
+%---------- 表格支持 ----------
+\usepackage{booktabs} % 专业表格工具
+\usepackage{multirow} % 多行合并
+\usepackage{array} % 列格式控制
+\newcolumntype{C}{>{\centering\arraybackslash}p{3cm}} % 自定义居中对齐列类型
+
+%---------- 代码高亮 ----------
+\usepackage{listings} % 代码块支持
+\usepackage{xcolor} % 颜色定义
+\lstset{
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red},
+  breaklines=true, % 自动换行
+  frame=single, % 单边框
+  numbers=left, % 行号在左侧
+  numberstyle=\tiny\color{gray},
+  tabsize=4 % 制表符宽度
+}
+
+%目录
+\usepackage{hyperref}
+\usepackage{tocloft} % 在 hyperref 后加载
+\setcounter{tocdepth}{3} % 显示section和subsection
+%\cftpagenumbersoff{section}    % 取消section页码
+%\cftpagenumbersoff{subsection} % 取消subsection页码
+%---------- 文档开始 ----------
+\begin{document}
+%\title{文档标题}
+%\author{作者}
+%\maketitle
+\tableofcontents % 目录位置
+\newpage
+%---------- 算法示例 ----------
+% \section{qwq}
+% \subsection{pwp}
+% \begin{algorithm}[H]
+%   \caption{快速排序算法} 
+%   \KwInput{无序数组 $A$, 起始索引 $low$, 结束索引 $high$}
+%   \KwOutput{升序排列的数组 $A$}
+%   \If{$low < high$}{
+%     $pivot \leftarrow \text{Partition}(A, low, high)$ \\
+%     \text{QuickSort}(A, low, pivot - 1) \\
+%     \text{QuickSort}(A, pivot + 1, high)
+%   }
+%   \tcp*{划分函数}
+%   \SetKwFunction{FPartition}{Partition}
+%   \SetKwProg{Fn}{Function}{}{}
+%   \Fn{\FPartition{$A$, $low$, $high$}}{
+%     $pivot \leftarrow A[high]$ \\
+%     $i \leftarrow low - 1$ \\
+%     \For{$j \leftarrow low$ \KwTo $high - 1$}{
+%       \If{$A[j] < pivot$}{
+%         $i \leftarrow i + 1$ \\
+%         \text{交换}(A[i], A[j])
+%       }
+%     }
+%     \text{交换}(A[i+1], A[high]) \\
+%     \Return $i+1$
+%   }
+% \end{algorithm}
+
+% %---------- 表格示例 ----------
+% \begin{table}[htbp]
+%   \centering
+%   \caption{神经网络超参数设置}
+%   \label{tab:hyperparams}
+%   \begin{tabular}{cCc}
+%     \toprule
+%     \textbf{参数类型} & \textbf{参数值} & \textbf{说明} \\
+%     \midrule
+%     学习率 & 0.001 & Adam优化器初始学习率 \\
+%     批大小 & 64 & 每次迭代样本量 \\
+%     \multirow{2}{*}{层数} & \multirow{2}{*}{8} & 卷积层：4 \\
+%     & & 全连接层：4 \\
+%     \bottomrule
+%   \end{tabular}
+% \end{table}
+
+% %---------- 代码示例 ----------
+% \begin{lstlisting}[language=Python, caption=Python示例代码]
+% import numpy as np
+
+% # 计算欧氏距离
+% def euclidean_distance(x, y):
+%     """计算两个向量的欧氏距离"""
+%     return np.sqrt(np.sum((x - y)**2))
+
+% # 主函数
+% if __name__ == "__main__":
+%     a = np.array([1, 2, 3])
+%     b = np.array([4, 5, 6])
+%     print(f"距离结果：{euclidean_distance(a, b):.2f}")
+% \end{lstlisting}
+\section{1}
+\end{document}
